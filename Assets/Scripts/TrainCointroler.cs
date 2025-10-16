@@ -3,7 +3,7 @@ using UnityEngine;
 public class TrainControl : MonoBehaviour
 {
     [Header("Train Control")]
-    public float Startspeed = 0f;
+    public float Startspeed = -2f;
     public float acceleration = 2f;
     public float deceleration = 1f;
     public float maxSpeed = 10f;
@@ -17,14 +17,23 @@ public class TrainControl : MonoBehaviour
 
     [Header("Wheels")]
     public HingeJoint[] wheels;
+
+
+
     
+
+//check if the train ready to start
+    public bool isStarted = false;
+
  
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+// Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         finalSpeed = Startspeed;
+        
     }
 
+//it's a time counting down function
     public void BurnCoal( float coalcount )
     {
         coalcount = coalcount + coalcount;
@@ -32,6 +41,7 @@ public class TrainControl : MonoBehaviour
         Debug.Log("TotalburnTime: " + TotalburnTime);
     }
 
+// make a fake motor to move the wheels
     void WheelMove()
     {
         
@@ -39,14 +49,22 @@ public class TrainControl : MonoBehaviour
         foreach (HingeJoint wheel in wheels)
         {
             JointMotor motor= wheel.motor;
-            motor.targetVelocity = finalSpeed * (-100f);
+            motor.targetVelocity = finalSpeed * (-50f);
             wheel.motor = motor;
         }
 
     }
     
+    //accelerate the train
    void accelerate()
     {
+        if (finalSpeed == minSpeed && isStarted == false)
+        {
+            isStarted = true;
+            GetComponent<AudioSource>().Play();
+        
+        }
+
         if (finalSpeed < maxSpeed)
         {
             finalSpeed += acceleration * Time.deltaTime;
@@ -58,6 +76,7 @@ public class TrainControl : MonoBehaviour
         WheelMove();    
     }
 
+    //decelerate the train
     void decelerate()
     {
         if (finalSpeed > minSpeed)
@@ -67,18 +86,22 @@ public class TrainControl : MonoBehaviour
         else
         {
             finalSpeed = minSpeed;
+            isStarted = false;
         }
+      
     }
     
 
     // Update is called once per frame
+    //if time is still counting down, accelerate the train
     void Update()
     {
     
         WheelMove();
         TotalburnTime -= Time.deltaTime;
         transform.Translate(Vector3.left * finalSpeed * Time.deltaTime);
-        
+
+       
         if (TotalburnTime >= 0f ) 
             {
                 accelerate();

@@ -1939,6 +1939,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1879354027}
   - {fileID: 1181107450}
   - {fileID: 1650876658}
   - {fileID: 292197580}
@@ -7916,6 +7917,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1877810385}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1879354027 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7822082059922092396, guid: 569bbd942ba80b04f86955653e22323e, type: 3}
+  m_PrefabInstance: {fileID: 1924742203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1896777073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8043,7 +8049,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 320899763}
     m_Modifications:
     - target: {fileID: 5586664786132871254, guid: 569bbd942ba80b04f86955653e22323e, type: 3}
       propertyPath: subject
@@ -8059,15 +8065,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7822082059922092396, guid: 569bbd942ba80b04f86955653e22323e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.11
+      value: -0.2899999
       objectReference: {fileID: 0}
     - target: {fileID: 7822082059922092396, guid: 569bbd942ba80b04f86955653e22323e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.13
+      value: -1.51
       objectReference: {fileID: 0}
     - target: {fileID: 7822082059922092396, guid: 569bbd942ba80b04f86955653e22323e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.05
+      value: 3.6139984
       objectReference: {fileID: 0}
     - target: {fileID: 7822082059922092396, guid: 569bbd942ba80b04f86955653e22323e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8075,7 +8081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7822082059922092396, guid: 569bbd942ba80b04f86955653e22323e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7822082059922092396, guid: 569bbd942ba80b04f86955653e22323e, type: 3}
       propertyPath: m_LocalRotation.y
@@ -8950,7 +8956,6 @@ SceneRoots:
   - {fileID: 1389263057}
   - {fileID: 1550902781}
   - {fileID: 1275094568}
-  - {fileID: 1924742203}
   - {fileID: 320899763}
   - {fileID: 1599971575}
   - {fileID: 1943453502}
