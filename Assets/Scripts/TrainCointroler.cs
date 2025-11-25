@@ -8,12 +8,12 @@ public class TrainControl : MonoBehaviour
     public float deceleration = 1f;
     public float maxSpeed = 10f;
     public float minSpeed = 0f;
-    private float finalSpeed;
+    public float finalSpeed;
 
     [Header("Coal")]
     
     public float burnTime = 3f;
-    private float TotalburnTime = 0f;
+    public float TotalburnTime = 0f;
 
     [Header("Wheels")]
     public HingeJoint[] wheels;
@@ -34,11 +34,11 @@ public class TrainControl : MonoBehaviour
     }
 
 //it's a time counting down function
-    public void BurnCoal( float coalcount )
+    void BurnCoal( float coalcount )
     {
         coalcount = coalcount + coalcount;
         TotalburnTime = coalcount * burnTime;
-        Debug.Log("TotalburnTime: " + TotalburnTime);
+        Debug.Log("Get a coal: " + TotalburnTime);
     }
 
 // make a fake motor to move the wheels
